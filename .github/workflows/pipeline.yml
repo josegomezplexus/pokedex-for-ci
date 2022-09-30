@@ -16,6 +16,10 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
+    - name: Cancel redundant builds
+      uses: styfle/cancel-workflow-action@0.10.0
+      with:
+        access_token: ${{github.token}}
     - name: Checkout
       uses: actions/checkout@v2.4.2
       with:
